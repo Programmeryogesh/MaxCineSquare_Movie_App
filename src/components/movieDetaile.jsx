@@ -10,9 +10,9 @@ function MoviesDetailS() {
     const { id } = useParams()
     async function ApiMovieData() {
         try {
-            const API_KEY = "262bb92caae701a877463fecf9c7912d";
+            let API_key = process.env.REACT_APP_API_KEY;
             const response = await fetch(
-                `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
+                `https://api.themoviedb.org/3/movie/${id}?api_key=${API_key}`
             );
             const result = await response.json();
             setCurrentMovieList(result);
