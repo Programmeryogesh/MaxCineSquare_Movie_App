@@ -17,8 +17,7 @@ function searchMoviesDataList() {
 
   async function SearchMovieData() {
     try {
-      let API_key = process.env.REACT_APP_API_KEY;
-      const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${value}&api_key=${API_key}`
+      const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${value}&api_key=262bb92caae701a877463fecf9c7912d`
       );
       const result = await response.json();
       setSearchMovies(result.results)
