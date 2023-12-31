@@ -22,9 +22,9 @@ function HomePage() {
 
   async function ApiMovieData() {
     try {
-      const API_KEY = "262bb92caae701a877463fecf9c7912d";
+      let API_key = process.env.REACT_APP_API_KEY;
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${activeButton}?api_key=${API_KEY}&language=en-US&page=${count}`
+        `https://api.themoviedb.org/3/movie/${activeButton}?api_key=${API_key}&language=en-US&page=${count}`
       );
       const result = await response.json();
       setMovieData(result.results);
