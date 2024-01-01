@@ -4,7 +4,7 @@ import { Box, Button, Typography } from '@mui/material';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import SearchMovieDataList from './searchMovies';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function HomePage() {
 
@@ -14,7 +14,7 @@ function HomePage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false)
 
-  // const value = useSelector((state) => state.inputValue);
+  const value = useSelector((state) => state.inputValue);
   // console.log(value);
 
 
@@ -56,22 +56,12 @@ function HomePage() {
 
 
   return (<>
-    {loading && <Box sx={{display:"flex",justifyContent:"center"}}><ThreeDots
-            height="200"
-            width="200"
-            radius="9"
-            color="red"
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClassName=""
-            visible={true}
-        /></Box>}
-         {error && MovieData &&<Typography m={6} sx={{ textAlign: "center", color: "red" }}>Error: {error}</Typography>}
-    <Box m={2} sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
-      <SearchMovieDataList />
-    </Box>
 
-    <Box sx={{ width: "94vw", margin: "30px auto 0 auto" }}>
+    {error && MovieData && <Typography m={6} sx={{ textAlign: "center", color: "red" }}>Error: {error}</Typography>}
+    {value !== "" && <SearchMovieDataList />}
+
+   {value === "" && <Box>
+   <Box sx={{ width: "94vw", margin: "30px auto 0 auto" }}>
       <Carousel
         showThumbs={false}
         autoPlay={true}
@@ -93,7 +83,7 @@ function HomePage() {
       </Carousel>
     </Box>
 
-    <Box m={3}>
+    <Box m={3} textAlign="center">
       {buttonNames.map((buttonKey, index) => (
         <Button
           key={index}
@@ -110,9 +100,12 @@ function HomePage() {
         <MovieCard MovieData={data} />
       ))}
     </Box>
-    <Box sx={{ display: "flex", gap: "10px", justifyContent: "center" }}> <Button variant="outlined" onClick={() => PrePage()}>Pre</Button> <Typography variant='body1' sx={{ display: "flex", alignItems: "center", color: "white" }}>{count}</Typography> <Button onClick={() => NextPage()} variant="outlined">Next</Button></Box>
+    <Box sx={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+      <Button variant="outlined" onClick={() => PrePage()}>Pre</Button> <Typography variant='body1' sx={{ display: "flex", alignItems: "center", color: "white" }}>{count}</Typography> <Button onClick={() => NextPage()} variant="outlined">Next</Button>
+    </Box>
+    </Box>}
 
-    {/* {value === true && <NewSearchBar/>} */}
+
 
   </>)
 }

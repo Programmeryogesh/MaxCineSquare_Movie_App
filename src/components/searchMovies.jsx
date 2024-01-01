@@ -37,30 +37,34 @@ function searchMoviesDataList() {
 
   return (<>
 
-    {SearchMovies && SearchMovies.map((data) => (
-      <Card component={Link} to={`movie/${data.id}`} sx={{ width: 250, height: 500, margin: "10px 5px", background: "#008effb8", color: "white", textDecoration: "none" }} >
-        <CardActionArea>
-          <CardMedia
-            sx={{ '&:hover': { scale: '1.1' }, transition: "1s" }}
-            component="img"
-            key={data.id}
-            height="auto"
-            image={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-            alt={data.title}
-          />
-          <CardContent sx={{ margin: "10px 0" }}>
-            <Typography gutterBottom variant="h6" component="div" align='center'>
-              {data.title.split(" ").slice(0, 5).join(' ')}
-            </Typography>
-            <Typography sx={{ color: "white" }} variant="subtitle2" color="text.secondary" align='center'>
-              {data.release_date}
-            </Typography>
+    {SearchMovies && <Typography variant="h4" sx={{marginTop:"10px"}} textAlign="center" color="white" >Search result</Typography>}
+    <Box m={2} sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
 
-          </CardContent>
-        </CardActionArea>
-      </Card>
+      {SearchMovies && SearchMovies.map((data) => (
+        <Card component={Link} to={`movie/${data.id}`} sx={{ width: 250, height: 500, margin: "10px 5px", background: "#008effb8", color: "white", textDecoration: "none" }} >
+          <CardActionArea>
+            <CardMedia
+              sx={{ '&:hover': { scale: '1.1' }, transition: "1s" }}
+              component="img"
+              key={data.id}
+              height="auto"
+              image={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+              alt={data.title}
+            />
+            <CardContent sx={{ margin: "10px 0" }}>
+              <Typography gutterBottom variant="h6" component="div" align='center'>
+                {data.title.split(" ").slice(0, 5).join(' ')}
+              </Typography>
+              <Typography sx={{ color: "white" }} variant="subtitle2" color="text.secondary" align='center'>
+                {data.release_date}
+              </Typography>
 
-    ))}
+            </CardContent>
+          </CardActionArea>
+        </Card>
+
+      ))}
+    </Box>
 
   </>)
 }
