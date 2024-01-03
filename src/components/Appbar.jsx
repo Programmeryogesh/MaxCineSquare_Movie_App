@@ -165,7 +165,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
             variant="h6"
             component={Link}
             to={'/'}
-            sx={{textDecoration:"none" , color:"inherit"}}
+            sx={{textDecoration:"none" , color:"inherit" , fontSize:{xs:14 , sm:"1.25rem"}}}
           >
             MaxCineSquare
           </Typography>

@@ -64,6 +64,7 @@ function HomePage() {
    <Box sx={{ width: "94vw", margin: "30px auto 0 auto" }}>
       <Carousel
         showThumbs={false}
+        showIndicators={false}
         autoPlay={true}
         transitionTime={3}
         infiniteLoop={true}
@@ -87,7 +88,7 @@ function HomePage() {
       {buttonNames.map((buttonKey, index) => (
         <Button
           key={index}
-          sx={{ margin: "5px 10px" }}
+          sx={{ margin: "5px 10px" , width:{xs:"65px" , sm:"110px" , md:"160px"} , fontSize:{xs:8 , sm:13 , md:16}}}
           onClick={() => handleClick(buttonKey)}
           variant={activeButton === buttonKey ? 'contained' : 'outlined'}
         >
