@@ -51,7 +51,7 @@ function searchMoviesDataList() {
               image={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
               alt={data.title}
             />
-            <CardContent sx={{ margin: "10px 0" }}>
+            <CardContent sx={{ margin: "10px 0" , padding:{xs:0 , md:" 5px"}}}>
               <Typography gutterBottom variant="h6" component="div" align='center' sx={{fontSize:{lg:20,md:15 , sm:10 , xs:8}}}>
                 {data.title.split(" ").slice(0, 5).join(' ')}
               </Typography>
