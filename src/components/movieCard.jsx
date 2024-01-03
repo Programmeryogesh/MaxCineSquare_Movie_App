@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 export default function MovieCard({MovieData}) {
 
   return (
-    <Card component={Link} to={`movie/${MovieData.id}`}  sx={{ width: {lg:250 , md:200 , sm:150, xs:120} ,height:{lg:500 , md:400,sm:300,xs:180}, margin:"10px 5px" , background:"#008effb8" , color:"white" , textDecoration:"none"
+    <Card component={Link} to={`movie/${MovieData.id}`}  sx={{ width: {lg:250 , md:200 , sm:150, xs:80} ,height:{lg:500 , md:400,sm:300,xs:120}, margin:"10px 5px" , background:"#008effb8" , color:"white" , textDecoration:"none"
     }} >
       <CardActionArea>
         <CardMedia

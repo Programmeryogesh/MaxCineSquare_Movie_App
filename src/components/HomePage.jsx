@@ -61,7 +61,7 @@ function HomePage() {
     {value !== "" && <SearchMovieDataList />}
 
    {value === "" && <Box>
-   <Box sx={{ width: "94vw", margin:{xs:"10px auto 0 auto" ,sm:"30px auto 0 auto"} }}>
+   <Box sx={{ width: "94vw", margin:{xs:"0 auto 0 auto" ,sm:"30px auto 0 auto"} }}>
       <Carousel
         showThumbs={false}
         showIndicators={false}
