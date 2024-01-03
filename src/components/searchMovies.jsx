@@ -41,7 +41,7 @@ function searchMoviesDataList() {
     <Box m={2} sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
 
       {SearchMovies && SearchMovies.map((data) => (
-        <Card component={Link} to={`movie/${data.id}`} sx={{ width: 250, height: 500, margin: "10px 5px", background: "#008effb8", color: "white", textDecoration: "none" }} >
+        <Card component={Link} to={`movie/${data.id}`} sx={{  width: {lg:250 , md:200 , sm:150, xs:80} ,height:{lg:500 , md:400,sm:300,xs:180}, margin: "10px 5px", background: "#008effb8", color: "white", textDecoration: "none" }} >
           <CardActionArea>
             <CardMedia
               sx={{ '&:hover': { scale: '1.1' }, transition: "1s" }}
@@ -52,10 +52,10 @@ function searchMoviesDataList() {
               alt={data.title}
             />
             <CardContent sx={{ margin: "10px 0" }}>
-              <Typography gutterBottom variant="h6" component="div" align='center'>
+              <Typography gutterBottom variant="h6" component="div" align='center' sx={{fontSize:{lg:20,md:15 , sm:10 , xs:8}}}>
                 {data.title.split(" ").slice(0, 5).join(' ')}
               </Typography>
-              <Typography sx={{ color: "white" }} variant="subtitle2" color="text.secondary" align='center'>
+              <Typography sx={{ color: "white" , fontSize:{lg:15,md:12 , sm:8 , xs:5}}} variant="subtitle2" color="text.secondary" align='center'>
                 {data.release_date}
               </Typography>
 
