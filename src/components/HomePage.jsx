@@ -61,7 +61,7 @@ function HomePage() {
     {value !== "" && <SearchMovieDataList />}
 
    {value === "" && <Box>
-   <Box sx={{ width: "94vw", margin: "30px auto 0 auto" }}>
+   <Box sx={{ width: "94vw", margin:{xs:"10px auto 0 auto" ,sm:"30px auto 0 auto"} }}>
       <Carousel
         showThumbs={false}
         showIndicators={false}
@@ -88,7 +88,7 @@ function HomePage() {
       {buttonNames.map((buttonKey, index) => (
         <Button
           key={index}
-          sx={{ margin:{xs:"0 10px" , sm:"5px 10px"} , width:{xs:"60px" , sm:"110px" , md:"160px"} , fontSize:{xs:7 , sm:13 , md:16}}}
+          sx={{ margin:{xs:"0 2px" , sm:"5px 10px"} , width:{xs:"60px" , sm:"110px" , md:"160px"} , fontSize:{xs:7 , sm:13 , md:16}}}
           onClick={() => handleClick(buttonKey)}
           variant={activeButton === buttonKey ? 'contained' : 'outlined'}
         >
