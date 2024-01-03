@@ -88,7 +88,7 @@ function HomePage() {
       {buttonNames.map((buttonKey, index) => (
         <Button
           key={index}
-          sx={{ margin:{xs:0 , sm:"5px 10px"} , width:{xs:"60px" , sm:"110px" , md:"160px"} , fontSize:{xs:8 , sm:13 , md:16}}}
+          sx={{ margin:{xs:"0 10px" , sm:"5px 10px"} , width:{xs:"60px" , sm:"110px" , md:"160px"} , fontSize:{xs:7 , sm:13 , md:16}}}
           onClick={() => handleClick(buttonKey)}
           variant={activeButton === buttonKey ? 'contained' : 'outlined'}
         >
