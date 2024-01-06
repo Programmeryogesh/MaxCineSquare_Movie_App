@@ -82,13 +82,13 @@ function HomePage() {
 
         ))}
       </Carousel>
-    </Box>
+    </Box> </Box>}
 
     <Box m={3} textAlign="center">
       {buttonNames.map((buttonKey, index) => (
         <Button
           key={index}
-          sx={{ margin:{xs:"0 2px" , sm:"5px 10px"} , width:{xs:"60px" , sm:"110px" , md:"160px"} , fontSize:{xs:7 , sm:13 , md:16}}}
+          sx={{ margin:{xs:"0 2px" , sm:"5px 10px"} , width:{xs:"65px" , sm:"110px" , md:"160px"} , fontSize:{xs:7 , sm:13 , md:16}}}
           onClick={() => handleClick(buttonKey)}
           variant={activeButton === buttonKey ? 'contained' : 'outlined'}
         >
@@ -104,7 +104,7 @@ function HomePage() {
     <Box sx={{ display: "flex", gap: "10px", justifyContent: "center" }}>
       <Button variant="outlined" onClick={() => PrePage()}>Pre</Button> <Typography variant='body1' sx={{ display: "flex", alignItems: "center", color: "white" }}>{count}</Typography> <Button onClick={() => NextPage()} variant="outlined">Next</Button>
     </Box>
-    </Box>}
+    
 
 
 

@@ -38,7 +38,7 @@ function searchMoviesDataList() {
   return (<>
 
     {SearchMovies && <Typography variant="h4" sx={{marginTop:"10px"}} textAlign="center" color="white" >Search result</Typography>}
-    <Box m={2} sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
+    <Box  sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" , marginTop:"20px" }}>
 
       {SearchMovies && SearchMovies.map((data) => (
         <Card component={Link} to={`movie/${data.id}`} sx={{ width: {lg:250 , md:200 , sm:150, xs:80} ,height:{lg:500 , md:400,sm:300,xs:120}, margin: "10px 5px", background: "#008effb8", color: "white", textDecoration: "none" }} >
