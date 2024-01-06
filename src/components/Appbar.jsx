@@ -14,9 +14,10 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
-import { useDispatch , useSelector } from 'react-redux';
-import {setInputValue} from '../store/actions/action'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { setInputValue } from '../store/actions/action'
+import LightModeIcon from '@mui/icons-material/LightMode';
+import NightlightIcon from '@mui/icons-material/Nightlight';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -59,11 +60,30 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
- function NavigetionBar() {
-  const value = useSelector((state) => state.inputValue)
+function NavigetionBar() {
   const dispatch = useDispatch();
-   
 
+  const [isNightMode, setIsNightMode] = React.useState(false);
+
+  React.useEffect(() => {
+    // Apply night mode styles when the component mounts
+    applyNightModeStyles();
+  }, [isNightMode]);
+
+  const toggleNightMode = () => {
+    setIsNightMode(!isNightMode);
+  };
+
+  const applyNightModeStyles = () => {
+    const body = document.body;
+    const nightModeClassName = 'night-mode';
+
+    if (isNightMode) {
+      body.classList.add(nightModeClassName);
+    } else {
+      body.classList.remove(nightModeClassName);
+    }
+  }
 
 
 
@@ -129,7 +149,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-     
+
       <MenuItem>
         <IconButton
           size="large"
@@ -154,18 +174,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         </IconButton>
         <p>Profile</p>
       </MenuItem>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box onClick={toggleNightMode} sx={{display:"flex" , alignItems:"center" , cursor:"pointer"}}>
+          {isNightMode ? <LightModeIcon /> : <NightlightIcon />}
+          <p style={{marginLeft:'2px'}}>Change Mood</p>
+        </Box>
+      </Box>
     </Menu>
   );
 
   return (
-    <Box sx={{ flexGrow: 1 , position:"sticky",top:"0px", zIndex:"99" }}>
+    <Box sx={{ flexGrow: 1, position: "sticky", top: "0px", zIndex: "99" }}>
       <AppBar position="static">
         <Toolbar>
           <Typography
             variant="h6"
             component={Link}
             to={'/'}
-            sx={{textDecoration:"none" , color:"inherit" , fontSize:{xs:14 , sm:"1.25rem"}}}
+            sx={{ textDecoration: "none", color: "inherit", fontSize: { xs: 14, sm: "1.25rem" } }}
           >
             MaxCineSquare
           </Typography>
@@ -175,13 +201,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
-              onChange={(event)=> dispatch(setInputValue(event.target.value))}
+              onChange={(event) => dispatch(setInputValue(event.target.value))}
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-           
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: "center" }}>
+            <Box onClick={toggleNightMode} sx={{cursor:"pointer"}}>
+              {isNightMode ? <LightModeIcon /> : <NightlightIcon />}
+            </Box>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
@@ -220,8 +248,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       {renderMobileMenu}
       {renderMenu}
     </Box>
-      
-      
+
+
   );
 }
 

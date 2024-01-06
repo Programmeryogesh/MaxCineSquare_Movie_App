@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Rating from '@mui/material/Rating';
 import React from "react";
+import LaunchIcon from '@mui/icons-material/Launch';
 
 
 function MoviesDetailS() {
@@ -85,7 +86,7 @@ function MoviesDetailS() {
 
                         </Box>
                     </Box>
-                   <Box sx={{display:"flex" , justifyContent:"center"}}> <Button variant="contained"  component={Link}  to={CurrentMovieList.homepage}>More Info</Button></Box>
+                   <Box my={2} sx={{display:"flex" , justifyContent:"center"}}> <Button variant="contained"  component={Link}  to={CurrentMovieList.homepage}>Home Page <LaunchIcon sx={{fontSize:18 , marginLeft:1}}/></Button></Box>
                 </Box>
 
 

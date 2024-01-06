@@ -102,7 +102,7 @@ function HomePage() {
       ))}
     </Box>
     <Box sx={{ display: "flex", gap: "10px", justifyContent: "center" }}>
-      <Button variant="outlined" onClick={() => PrePage()}>Pre</Button> <Typography variant='body1' sx={{ display: "flex", alignItems: "center", color: "white" }}>{count}</Typography> <Button onClick={() => NextPage()} variant="outlined">Next</Button>
+      <Button variant="outlined" onClick={() => PrePage()}>Pre</Button> <Typography variant='body1' sx={{ display: "flex", alignItems: "center", color: "white" , backgroundColor:"#008effb8" , borderRadius:"5px" }} p={2}>{count}</Typography> <Button onClick={() => NextPage()} variant="outlined">Next</Button>
     </Box>
     
 

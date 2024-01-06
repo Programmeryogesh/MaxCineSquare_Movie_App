@@ -3,3 +3,29 @@ body{
   padding: 0;
   background-color: black;
 }
+
+&::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color:  rgb(252, 252, 252); /* Color of the thumb */
+  border-radius: 5px; /* Rounded corners of the thumb */
+}
+
+&::-webkit-scrollbar-track {
+  background-color: rgb(11, 119, 219) ; /* Color of the track */
+}
+
+.night-mode-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.night-mode {
+  background-color: #ffffff; /* Dark background color for night mode */
+  color: #fff; /* Light text color for night mode */
+}
