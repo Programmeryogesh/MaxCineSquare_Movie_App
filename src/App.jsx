@@ -6,6 +6,7 @@ import MoviesDetailS from './components/movieDetaile';
 import Footer from './components/footerComponent';
 import {Provider} from 'react-redux'
 import {store} from './store/store'
+import FavoriteCartComponent from './components/FavoriteMovie';
 // import NewSearchBar from './components/newSearchBar';
 // import { useSelector } from 'react-redux';
 
@@ -22,7 +23,10 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='movie/:id' element={<MoviesDetailS/>} />
+          <Route path='FavoriteMovie/movie/:id' element={<MoviesDetailS/>} />
+
           <Route path='/search' element={<MoviesDetailS/>} />
+          <Route path='/FavoriteMovie' element={<FavoriteCartComponent/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>

@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setInputValue } from '../store/actions/action'
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightlightIcon from '@mui/icons-material/Nightlight';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -64,7 +65,8 @@ function NavigetionBar() {
   const dispatch = useDispatch();
 
   const [isNightMode, setIsNightMode] = React.useState(false);
-
+  const movieAddIn = useSelector((state) => state.movie);
+  console.log(movieAddIn);
   React.useEffect(() => {
     // Apply night mode styles when the component mounts
     applyNightModeStyles();
@@ -174,6 +176,20 @@ function NavigetionBar() {
         </IconButton>
         <p>Profile</p>
       </MenuItem>
+
+      <MenuItem component={Link} to={"/FavoriteMovie"}>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge badgeContent={movieAddIn.length} color="error">
+            <FavoriteIcon/>
+          </Badge>
+        </IconButton>
+        <p>Favorite</p>
+      </MenuItem>
+
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box onClick={toggleNightMode} sx={{display:"flex" , alignItems:"center" , cursor:"pointer"}}>
           {isNightMode ? <LightModeIcon /> : <NightlightIcon />}
@@ -184,7 +200,7 @@ function NavigetionBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, position: "sticky", top: "0px", zIndex: "99" }}>
+    <Box sx={{ flexGrow: 1, position: "sticky", top: "0px", zIndex: "999"}}>
       <AppBar position="static">
         <Toolbar>
           <Typography
@@ -210,6 +226,17 @@ function NavigetionBar() {
             <Box onClick={toggleNightMode} sx={{cursor:"pointer"}}>
               {isNightMode ? <LightModeIcon /> : <NightlightIcon />}
             </Box>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+              component={Link} to={"/FavoriteMovie"}
+            >
+              <Badge badgeContent={movieAddIn.length} color="error">
+                <FavoriteIcon />
+              </Badge>
+            </IconButton>
+
             <IconButton
               size="large"
               aria-label="show 17 new notifications"

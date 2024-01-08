@@ -15,7 +15,7 @@ function HomePage() {
   const [loading, setLoading] = useState(false)
 
   const value = useSelector((state) => state.inputValue);
-  // console.log(value);
+
 
 
 

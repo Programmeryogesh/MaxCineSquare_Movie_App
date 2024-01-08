@@ -24,7 +24,7 @@ function MoviesDetailS() {
 
 
     }
-    console.log(CurrentMovieList);
+    // console.log(CurrentMovieList);
     useEffect(() => {
         ApiMovieData();
     }, [])
