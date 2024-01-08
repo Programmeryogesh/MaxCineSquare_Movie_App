@@ -34,7 +34,7 @@ function FavoriteCartComponent() {
                                 elevation={3}
                                 style={{marginBottom:"16px"}}
                             >
-                                <Box p={3} display="flex" justifyContent="space-between" alignItems="center">
+                                <Box p={3} display="flex"  alignItems="center" sx={{flexDirection:{xs:"column"  , sm:"row" , justifyContent:{xs:"center" , sm:"space-between"}}}}>
                                     <Box>
                                     <Typography variant='h5'>{item.title}</Typography>
                                     <Typography variant='body2' my={1}>{item.overview}</Typography>
@@ -43,7 +43,7 @@ function FavoriteCartComponent() {
                                     <Rating sx={{ marginBottom: "10px", marginTop:"10px"}} name="read-only" value={item.vote_average.toFixed(0)} readOnly max={10} />    
                                     </Box>
                                     <Box mx={2}>
-                                       <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt="movie Image" style={{ maxWidth:"200px" , maxHeight:"250px"}} />
+                                       <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt="Product Image" height={200} width={150} />
                                     </Box>
                                 </Box>
                                 <Divider />
